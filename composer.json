@@ -1,17 +1,19 @@
 {
-    "name": ":vendor_name/:package_slug",
-    "description": ":package_description",
+    "name": "fromhome/laravel-model-upload",
+    "description": "Simple model upload using Laravel Excel",
     "keywords": [
-        ":vendor_name",
+        "php",
         "laravel",
-        ":package_slug"
+        "laravel-package",
+        "phpexcel",
+        "phpoffice"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/atfromhome/laravel-model-upload",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Nuradiyana",
+            "email": "me@nooradiana.com",
             "role": "Developer"
         }
     ],
@@ -26,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "FromHome\\ModelUpload\\": "src",
+            "FromHome\\ModelUpload\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "FromHome\\ModelUpload\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "FromHome\\ModelUpload\\ModelUploadServiceProvider"
             ]
         }
     },
