@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace FromHome\ModelUpload;
 
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use FromHome\ModelUpload\Actions\StoreModelUploadFile;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use FromHome\ModelUpload\Processor\RecordProcessorManager;
 
 final class ModelUploadServiceProvider extends PackageServiceProvider

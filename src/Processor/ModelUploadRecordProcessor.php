@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FromHome\ModelUpload\Processor;
 
 use Illuminate\Database\Eloquent\Model;
