@@ -31,10 +31,7 @@ final class StoreModelUploadFile
             'state' => UploadFileState::upload,
         ]);
 
-        ModelRecordImport::new()
-            ->forFile($file)
-            ->withMeta($meta)
-            ->process();
+        ModelRecordImport::new()->forFile($file)->withMeta($meta)->process();
 
         return $file;
     }

@@ -32,13 +32,13 @@ final class ModelUploadRecord extends Model
 
     public function getPayloadData(?string $key = null, mixed $default = null): mixed
     {
-        $meta = $this->getAttribute('payload') ?? [];
+        $payload = $this->getAttribute('payload') ?? [];
 
         if ($key === null) {
-            return $meta;
+            return $payload;
         }
 
-        return $meta[$key] ?? $default;
+        return $payload[$key] ?? $default;
     }
 
     public function getMetaData(?string $key = null, mixed $default = null): mixed
