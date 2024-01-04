@@ -17,16 +17,16 @@ final class RecordProcessorManager
 
     public function getRecordProcessor(string $modelType): ?ModelUploadRecordProcessor
     {
-        $actionClass = $this->actions[$modelType] ?? null;
+        $processorClass = $this->processors[$modelType] ?? null;
 
-        if ($actionClass === null) {
+        if ($processorClass === null) {
             return null;
         }
 
-        $action = app($actionClass);
+        $processor = app($processorClass);
 
-        Assert::isInstanceOf($action, ModelUploadRecordProcessor::class);
+        Assert::isInstanceOf($processor, ModelUploadRecordProcessor::class);
 
-        return $action;
+        return $processor;
     }
 }

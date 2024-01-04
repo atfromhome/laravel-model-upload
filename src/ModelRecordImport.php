@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FromHome\ModelUpload;
 
+use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Events\AfterImport;
@@ -62,6 +63,7 @@ final class ModelRecordImport implements ShouldQueue, SkipsUnknownSheets, ToMode
         Assert::notNull($this->uploadFile);
 
         return new ModelUploadRecord([
+            'id' => \strtolower((string) Str::ulid()),
             'model_upload_file_id' => $this->uploadFile->getKey(),
             'payload' => $row,
             'meta' => $this->meta,
