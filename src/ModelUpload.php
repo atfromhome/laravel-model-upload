@@ -35,15 +35,4 @@ final class ModelUpload
             $request->user(), $file, $request->input('model_type'), $meta
         );
     }
-
-    public static function routes(): void
-    {
-        Route::get('/model-upload', [UserFileUploadController::class, 'index']);
-        Route::get('/model-upload/create', [UserFileUploadController::class, 'create']);
-        Route::post('/model-upload', [UserFileUploadController::class, 'store']);
-
-        Route::get('/model-upload/{model}/record', [FileUploadRecordController::class, 'index']);
-
-        Route::get('/model-upload/record/{record}', [FileUploadRecordController::class, 'show']);
-    }
 }
