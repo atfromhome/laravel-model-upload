@@ -16,6 +16,7 @@ final class FetchUserUploadFilePaginator
         $keyword = $request->string('keyword');
 
         return ModelUploadFile::query()
+            ->withCount('records')
             ->when($keyword, function (Builder $builder) use ($keyword): void {
                 $value = \mb_strtolower((string) $keyword, 'UTF8');
 
@@ -23,6 +24,7 @@ final class FetchUserUploadFilePaginator
             })
             ->when($modelType, fn (Builder $builder) => $builder->where('model_type', $modelType))
             ->where('user_id', $request->user()?->getKey())
+            ->latest()
             ->cursorPaginate()
             ->withQueryString();
     }
