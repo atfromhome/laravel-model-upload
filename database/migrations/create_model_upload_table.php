@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('file_path');
             $table->string('state', 50);
             $table->longText('error_message')->nullable();
+            $table->longText('exception')->nullable();
             $table->timestamps();
         });
 
