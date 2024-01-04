@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('file_name');
             $table->string('storage_disk');
             $table->string('file_path');
-            $table->string('state', 50);
             $table->longText('error_message')->nullable();
-            $table->longText('exception')->nullable();
+            $table->string('state', 50);
             $table->timestamps();
         });
 
@@ -32,6 +31,7 @@ return new class extends Migration
             $table->json('payload')->nullable();
             $table->json('meta')->nullable();
             $table->longText('error_message')->nullable();
+            $table->longText('exception')->nullable();
             $table->string('model_id', 36)->nullable();
             $table->string('model_type')->nullable();
             $table->timestamps();
