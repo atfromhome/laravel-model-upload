@@ -23,6 +23,7 @@
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
+        "inertiajs/inertia-laravel": "^0.6.11",
         "laravel/pint": "^1.10",
         "orchestra/testbench": "^8.0",
         "roave/security-advisories": "dev-latest",
