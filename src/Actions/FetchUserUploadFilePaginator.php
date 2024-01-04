@@ -11,11 +11,9 @@ use Illuminate\Contracts\Pagination\CursorPaginator;
 
 final class FetchUserUploadFilePaginator
 {
-    public function handle(Request $request): CursorPaginator
+    public function handle(Request $request, ?string $modelType = null): CursorPaginator
     {
         $keyword = $request->string('keyword');
-
-        $modelType = $request->get('model_type');
 
         return ModelUploadFile::query()
             ->when($keyword, function (Builder $builder) use ($keyword): void {
