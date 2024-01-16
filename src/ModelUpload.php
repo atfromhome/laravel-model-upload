@@ -12,6 +12,18 @@ use FromHome\ModelUpload\Processor\RecordProcessorManager;
 
 final class ModelUpload
 {
+    private static string $importStartCell = 'A1';
+
+    public static function importStartCell(): string
+    {
+        return self::$importStartCell;
+    }
+
+    public static function useImportStartCell(string $importStartCell): void
+    {
+        self::$importStartCell = $importStartCell;
+    }
+
     public static function registerRecordProcessors(array $processors): void
     {
         /** @var RecordProcessorManager $manager */

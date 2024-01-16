@@ -19,9 +19,10 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use FromHome\ModelUpload\Models\ModelUploadRecord;
 use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use FromHome\ModelUpload\Jobs\ProcessModelRecordJob;
 
-final class ModelRecordImport implements ShouldQueue, SkipsUnknownSheets, ToModel, WithBatchInserts, WithChunkReading, WithEvents, WithHeadingRow, WithMultipleSheets
+final class ModelRecordImport implements ShouldQueue, SkipsUnknownSheets, ToModel, WithBatchInserts, WithChunkReading, WithCustomStartCell, WithEvents, WithHeadingRow, WithMultipleSheets
 {
     use Importable;
 
@@ -100,5 +101,10 @@ final class ModelRecordImport implements ShouldQueue, SkipsUnknownSheets, ToMode
 
     public function onUnknownSheet($sheetName): void
     {
+    }
+
+    public function startCell(): string
+    {
+        return ModelUpload::importStartCell();
     }
 }
