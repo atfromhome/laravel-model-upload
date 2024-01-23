@@ -30,7 +30,7 @@ final class ModelUpload
      */
     public static function useModelRecordImporter(string $importerClass): void
     {
-        \throw_if(
+        \throw_unless(
             \class_exists($importerClass),
             new \InvalidArgumentException('Invalid concrete class')
         );
