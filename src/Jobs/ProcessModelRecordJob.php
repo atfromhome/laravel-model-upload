@@ -14,6 +14,7 @@ use FromHome\ModelUpload\Enums\UploadFileState;
 use FromHome\ModelUpload\Models\ModelUploadFile;
 use FromHome\ModelUpload\Models\ModelUploadRecord;
 use FromHome\ModelUpload\Processor\RecordProcessorManager;
+use FromHome\ModelUpload\Events\ModelUploadFileWasProcessed;
 
 final class ProcessModelRecordJob implements ShouldQueue
 {
@@ -45,6 +46,8 @@ final class ProcessModelRecordJob implements ShouldQueue
                 ),
             ]);
 
+            event(new ModelUploadFileWasProcessed($this->modelUploadFile));
+
             return;
         }
 
@@ -74,5 +77,7 @@ final class ProcessModelRecordJob implements ShouldQueue
         $this->modelUploadFile->update([
             'state' => $errorCount === 0 ? UploadFileState::done : $errorState,
         ]);
+
+        event(new ModelUploadFileWasProcessed($this->modelUploadFile));
     }
 }
