@@ -9,17 +9,15 @@ use Maatwebsite\Excel\Events\AfterImport;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 use Illuminate\Foundation\Bus\PendingDispatch;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use FromHome\ModelUpload\Models\ModelUploadFile;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
-use Maatwebsite\Excel\Concerns\WithMultipleSheets;
-use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use FromHome\ModelUpload\Jobs\ProcessModelRecordJob;
 
-abstract class AbstractModelRecordImport implements ShouldQueue, SkipsUnknownSheets, WithBatchInserts, WithChunkReading, WithCustomStartCell, WithEvents, WithHeadingRow, WithMultipleSheets
+abstract class AbstractModelRecordImport implements ShouldQueue, SkipsUnknownSheets, WithBatchInserts, WithChunkReading, WithStartRow, WithEvents
 {
     use Importable;
 
@@ -72,19 +70,10 @@ abstract class AbstractModelRecordImport implements ShouldQueue, SkipsUnknownShe
         ];
     }
 
-    public function sheets(): array
-    {
-        return [
-            'DATA' => $this,
-        ];
-    }
+    public function onUnknownSheet($sheetName): void {}
 
-    public function onUnknownSheet($sheetName): void
+    public function startRow(): int
     {
-    }
-
-    public function startCell(): string
-    {
-        return ModelUpload::importStartCell();
+        return ModelUpload::importStartRow();
     }
 }
