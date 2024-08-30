@@ -25,8 +25,7 @@ final class ProcessModelRecordJob implements ShouldQueue
 
     public function __construct(
         private readonly ModelUploadFile $modelUploadFile
-    ) {
-    }
+    ) {}
 
     public function handle(RecordProcessorManager $manager): void
     {

@@ -17,7 +17,7 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
 use FromHome\ModelUpload\Jobs\ProcessModelRecordJob;
 
-abstract class AbstractModelRecordImport implements ShouldQueue, SkipsUnknownSheets, WithBatchInserts, WithChunkReading, WithStartRow, WithEvents
+abstract class AbstractModelRecordImport implements ShouldQueue, SkipsUnknownSheets, WithBatchInserts, WithChunkReading, WithEvents, WithStartRow
 {
     use Importable;
 

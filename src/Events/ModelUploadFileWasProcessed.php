@@ -10,6 +10,5 @@ final class ModelUploadFileWasProcessed
 {
     public function __construct(
         public readonly ModelUploadFile $modelUploadFile
-    ) {
-    }
+    ) {}
 }

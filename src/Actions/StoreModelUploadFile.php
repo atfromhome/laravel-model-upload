@@ -13,9 +13,7 @@ use FromHome\ModelUpload\AbstractModelRecordImport;
 final class StoreModelUploadFile
 {
     public function __construct(
-        private readonly AbstractModelRecordImport $modelRecordImport)
-    {
-    }
+        private readonly AbstractModelRecordImport $modelRecordImport) {}
 
     public function handle(Authenticatable $user, UploadedFile $uploadedFile, string $modelType, array $meta): ModelUploadFile
     {
