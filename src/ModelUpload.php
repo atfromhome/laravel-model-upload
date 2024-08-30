@@ -13,16 +13,16 @@ use FromHome\ModelUpload\Processor\RecordProcessorManager;
 
 final class ModelUpload
 {
-    private static string $importStartCell = 'A1';
+    private static int $importStartRow = 1;
 
-    public static function importStartCell(): string
+    public static function importStartRow(): int
     {
-        return self::$importStartCell;
+        return self::$importStartRow;
     }
 
-    public static function useImportStartCell(string $importStartCell): void
+    public static function useImportStartRow(int $importStartRow): void
     {
-        self::$importStartCell = $importStartCell;
+        self::$importStartRow = $importStartRow;
     }
 
     /**
@@ -55,7 +55,10 @@ final class ModelUpload
         $file = $request->file('file');
 
         return $action->handle(
-            $request->user(), $file, $modelType ?? $request->input('model_type'), $meta
+            $request->user(),
+            $file,
+            $modelType ?? $request->input('model_type'),
+            $meta
         );
     }
 }
