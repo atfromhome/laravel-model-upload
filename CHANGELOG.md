@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-model-upload` will be documented in this file.
 
+## 1.1.0 - 2025-03-06
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/atfromhome/laravel-model-upload/pull/22
+* Patch by @nuradiyana in https://github.com/atfromhome/laravel-model-upload/pull/23
+
+**Full Changelog**: https://github.com/atfromhome/laravel-model-upload/compare/1.0.0...1.1.0
+
 ## 1.0.0 - 2024-08-30
 
 ### What's Changed
