@@ -15,6 +15,11 @@ final class RecordProcessorManager
         $this->processors = \array_merge($this->processors, $processors);
     }
 
+    public function getProcessors(): array
+    {
+        return $this->processors;
+    }
+
     public function getRecordProcessor(string $modelType): ?ModelUploadRecordProcessor
     {
         $processorClass = $this->processors[$modelType] ?? null;
