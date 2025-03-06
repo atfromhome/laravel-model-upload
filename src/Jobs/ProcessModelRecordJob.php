@@ -41,7 +41,9 @@ final class ProcessModelRecordJob implements ShouldQueue
             $this->modelUploadFile->update([
                 'state' => UploadFileState::error,
                 'error_message' => \sprintf(
-                    'Invalid `null` action for %s type', $this->modelUploadFile->getAttribute('model_type')
+                    'Invalid `null` action for %s type. Valid type is %s',
+                    $this->modelUploadFile->getAttribute('model_type'),
+                    \implode(', ', $manager->getProcessors())
                 ),
             ]);
 
