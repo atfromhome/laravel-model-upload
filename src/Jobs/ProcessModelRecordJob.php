@@ -81,4 +81,14 @@ final class ProcessModelRecordJob implements ShouldQueue
 
         event(new ModelUploadFileWasProcessed($this->modelUploadFile));
     }
+
+    public function failed(\Throwable $exception): void
+    {
+        $this->modelUploadFile->update([
+            'state' => UploadFileState::error,
+            'error_message' => $exception->getMessage(),
+        ]);
+
+        event(new ModelUploadFileWasProcessed($this->modelUploadFile));
+    }
 }
