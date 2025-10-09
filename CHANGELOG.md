@@ -2,6 +2,25 @@
 
 All notable changes to `laravel-model-upload` will be documented in this file.
 
+## 1.1.1 - 2025-10-09
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/atfromhome/laravel-model-upload/pull/24
+  
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/atfromhome/laravel-model-upload/pull/26
+  
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/atfromhome/laravel-model-upload/pull/25
+  
+* bug : handle unexpected error by add 'failed' function by @nandi-ir in https://github.com/atfromhome/laravel-model-upload/pull/27
+  
+
+### New Contributors
+
+* @nandi-ir made their first contribution in https://github.com/atfromhome/laravel-model-upload/pull/27
+
+**Full Changelog**: https://github.com/atfromhome/laravel-model-upload/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2025-03-06
 
 ### What's Changed
